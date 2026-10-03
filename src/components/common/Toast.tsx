@@ -14,9 +14,9 @@ export const Toast: React.FC = () => {
   };
 
   const borders = {
-    success: 'border-emerald-300 bg-emerald-50 text-emerald-950',
+    success: 'border-emerald-300 dark:border-emerald-700 bg-emerald-50 dark:bg-emerald-950/40 text-emerald-950 dark:text-emerald-100',
     error: 'border-rose-300 bg-rose-50 text-rose-950',
-    info: 'border-blue-300 bg-blue-50 text-blue-950',
+    info: 'border-blue-300 dark:border-blue-700 bg-blue-50 dark:bg-blue-950/35 text-blue-950 dark:text-blue-100',
   };
 
   return (

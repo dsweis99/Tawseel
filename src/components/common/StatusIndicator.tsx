@@ -47,8 +47,8 @@ export const StatusIndicator: React.FC<StatusIndicatorProps> = ({
       textLabel = customLabel || t.statusPaid;
       colorStyles =
         variant === 'outline'
-          ? 'border-emerald-600 text-emerald-800 bg-transparent'
-          : 'bg-emerald-50 text-emerald-800 border-emerald-300 dark:bg-emerald-950/40 dark:text-emerald-300 dark:border-emerald-800';
+          ? 'border-emerald-600 text-emerald-800 dark:text-emerald-300 bg-transparent'
+          : 'bg-emerald-50 dark:bg-emerald-950/40 text-emerald-800 dark:text-emerald-300 border-emerald-300 dark:border-emerald-700 dark:bg-emerald-950/40 dark:text-emerald-300 dark:border-emerald-800';
       break;
 
     case 'pending_review':
@@ -56,8 +56,8 @@ export const StatusIndicator: React.FC<StatusIndicatorProps> = ({
       textLabel = customLabel || t.statusPendingReview;
       colorStyles =
         variant === 'outline'
-          ? 'border-amber-600 text-amber-900 bg-transparent'
-          : 'bg-amber-50 text-amber-900 border-amber-300 dark:bg-amber-950/40 dark:text-amber-300 dark:border-amber-800';
+          ? 'border-amber-600 text-amber-900 dark:text-amber-200 bg-transparent'
+          : 'bg-amber-50 dark:bg-amber-950/35 text-amber-900 dark:text-amber-200 border-amber-300 dark:border-amber-700 dark:bg-amber-950/40 dark:text-amber-300 dark:border-amber-800';
       break;
 
     case 'unpaid':
@@ -74,8 +74,8 @@ export const StatusIndicator: React.FC<StatusIndicatorProps> = ({
       textLabel = customLabel || t.statusRejected;
       colorStyles =
         variant === 'outline'
-          ? 'border-red-600 text-red-900 bg-transparent'
-          : 'bg-red-50 text-red-900 border-red-300 dark:bg-red-950/60 dark:text-red-300 dark:border-red-800';
+          ? 'border-red-600 text-red-900 dark:text-red-200 bg-transparent'
+          : 'bg-red-50 dark:bg-red-950/35 text-red-900 dark:text-red-200 border-red-300 dark:border-red-700 dark:bg-red-950/60 dark:text-red-300 dark:border-red-800';
       break;
 
     case 'expired':
@@ -83,8 +83,8 @@ export const StatusIndicator: React.FC<StatusIndicatorProps> = ({
       textLabel = customLabel || t.statusExpired;
       colorStyles =
         variant === 'outline'
-          ? 'border-slate-500 text-slate-700 bg-transparent'
-          : 'bg-slate-100 text-slate-800 border-slate-300 dark:bg-slate-800 dark:text-slate-300 dark:border-slate-700';
+          ? 'border-slate-500 text-slate-700 dark:text-slate-300 bg-transparent'
+          : 'bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 border-slate-300 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 dark:border-slate-700';
       break;
 
     case 'registered':
@@ -92,8 +92,8 @@ export const StatusIndicator: React.FC<StatusIndicatorProps> = ({
       textLabel = customLabel || t.statusRegistered;
       colorStyles =
         variant === 'outline'
-          ? 'border-blue-500 text-blue-800 bg-transparent'
-          : 'bg-blue-50 text-blue-800 border-blue-200 dark:bg-blue-950/40 dark:text-blue-300 dark:border-blue-800';
+          ? 'border-blue-500 text-blue-800 dark:text-blue-300 bg-transparent'
+          : 'bg-blue-50 dark:bg-blue-950/35 text-blue-800 dark:text-blue-300 border-blue-200 dark:border-blue-800 dark:bg-blue-950/40 dark:text-blue-300 dark:border-blue-800';
       break;
 
     case 'not_registered':
@@ -108,7 +108,7 @@ export const StatusIndicator: React.FC<StatusIndicatorProps> = ({
     default:
       iconNode = <AlertCircle className="shrink-0" />;
       textLabel = customLabel || String(status);
-      colorStyles = 'bg-slate-100 text-slate-700 border-slate-200';
+      colorStyles = 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-800';
   }
 
   // Size specifications with strict minimum legible typography and touch paddings

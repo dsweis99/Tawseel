@@ -1,6 +1,15 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <script>
+      // Apply saved appearance before React mounts to prevent a light-theme flash.
+      try {
+        if (localStorage.getItem('tawseel-theme') === 'dark') {
+          document.documentElement.classList.add('dark');
+          document.documentElement.style.colorScheme = 'dark';
+        }
+      } catch (_) {}
+    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Wasel Admin — Delivery Community Membership & Subscription Hub</title>

@@ -37,13 +37,13 @@ export const ConfirmModal: React.FC<ConfirmModalProps> = ({
     },
     primary: {
       btn: 'bg-emerald-700 hover:bg-emerald-800 text-white',
-      icon: <CheckCircle className="w-6 h-6 text-emerald-700" />,
-      bgIcon: 'bg-emerald-100',
+      icon: <CheckCircle className="w-6 h-6 text-emerald-700 dark:text-emerald-400" />,
+      bgIcon: 'bg-emerald-100 dark:bg-emerald-900/40',
     },
     success: {
       btn: 'bg-emerald-700 hover:bg-emerald-800 text-white',
-      icon: <CheckCircle className="w-6 h-6 text-emerald-700" />,
-      bgIcon: 'bg-emerald-100',
+      icon: <CheckCircle className="w-6 h-6 text-emerald-700 dark:text-emerald-400" />,
+      bgIcon: 'bg-emerald-100 dark:bg-emerald-900/40',
     },
   };
 
@@ -55,11 +55,11 @@ export const ConfirmModal: React.FC<ConfirmModalProps> = ({
       aria-modal="true"
       className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-xs animate-in fade-in duration-150"
     >
-      <div className="bg-white rounded-2xl max-w-md w-full p-6 border border-slate-200 shadow-2xl relative text-left rtl:text-right">
+      <div className="bg-white dark:bg-slate-900 rounded-2xl max-w-md w-full p-6 border border-slate-200 dark:border-slate-800 shadow-2xl relative text-left rtl:text-right">
         <button
           onClick={onClose}
           aria-label={t.close}
-          className="absolute top-4 right-4 rtl:right-auto rtl:left-4 p-2 text-slate-400 hover:text-slate-600 rounded-lg min-h-[44px] min-w-[44px] flex items-center justify-center"
+          className="absolute top-4 right-4 rtl:right-auto rtl:left-4 p-2 text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:text-slate-300 dark:hover:text-slate-300 dark:text-slate-600 rounded-lg min-h-[44px] min-w-[44px] flex items-center justify-center"
         >
           <X className="w-5 h-5" />
         </button>
@@ -69,17 +69,17 @@ export const ConfirmModal: React.FC<ConfirmModalProps> = ({
             {style.icon}
           </div>
           <div>
-            <h3 className="text-lg font-bold text-slate-900 leading-snug">{title}</h3>
-            <p className="mt-1 text-sm text-slate-600 leading-relaxed">{message}</p>
+            <h3 className="text-lg font-bold text-slate-900 dark:text-slate-100 leading-snug">{title}</h3>
+            <p className="mt-1 text-sm text-slate-600 dark:text-slate-300 leading-relaxed">{message}</p>
           </div>
         </div>
 
-        <div className="mt-6 flex flex-col-reverse sm:flex-row gap-3 justify-end pt-3 border-t border-slate-100">
+        <div className="mt-6 flex flex-col-reverse sm:flex-row gap-3 justify-end pt-3 border-t border-slate-100 dark:border-slate-800">
           <button
             type="button"
             onClick={onClose}
             disabled={isLoading}
-            className="w-full sm:w-auto px-5 py-2.5 rounded-xl border border-slate-300 text-slate-700 hover:bg-slate-50 font-medium text-sm min-h-[44px] transition-colors"
+            className="w-full sm:w-auto px-5 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:bg-slate-950 dark:hover:bg-slate-800 font-medium text-sm min-h-[44px] transition-colors"
           >
             {cancelText || t.cancel}
           </button>

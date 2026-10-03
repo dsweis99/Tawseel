@@ -42,3 +42,25 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #94a3b8;
 }
+/* Class-driven theme variant for Tailwind CSS v4. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  html {
+    color-scheme: light;
+    background: #f8fafc;
+  }
+
+  html.dark {
+    color-scheme: dark;
+    background: #020617;
+  }
+
+  body {
+    transition: background-color 180ms ease, color 180ms ease;
+  }
+
+  html.dark ::-webkit-scrollbar-track { background: #0f172a; }
+  html.dark ::-webkit-scrollbar-thumb { background: #334155; }
+  html.dark ::-webkit-scrollbar-thumb:hover { background: #475569; }
+}

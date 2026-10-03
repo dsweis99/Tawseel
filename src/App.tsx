@@ -124,7 +124,7 @@ const MainAppContent: React.FC = () => {
   const mobileTabs = getMobileTabs();
 
   return (
-    <div className="min-h-screen flex flex-col bg-slate-50 text-slate-900 pb-24 lg:pb-8">
+    <div className="min-h-screen flex flex-col bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 pb-24 lg:pb-8">
       {/* Top Bar (One row, 3-zone contract) */}
       <Header />
 
@@ -134,21 +134,21 @@ const MainAppContent: React.FC = () => {
       </main>
 
       {/* Footer: Quiet copyright and operational statement */}
-      <footer className="mt-auto border-t border-slate-200 bg-white/70 py-4 hidden sm:block">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-2">
+      <footer className="mt-auto border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/70 py-4 hidden sm:block">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 dark:text-slate-400 gap-2">
           <div className="flex items-center gap-2">
-            <span className="font-bold text-slate-700">{t.appName}</span>
+            <span className="font-bold text-slate-700 dark:text-slate-300">{t.appName}</span>
             <span>·</span>
             <span>{t.appTagline}</span>
           </div>
-          <div className="font-mono text-[11px] text-slate-400">
+          <div className="font-mono text-[11px] text-slate-400 dark:text-slate-500">
             JoPACC CliQ Ready · Jo-Delivery Standards
           </div>
         </div>
       </footer>
 
       {/* Mobile Fixed Bottom Navigation Bar (Natural Thumb Zone, 15% Max Height Cap) */}
-      <div className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-slate-200">
+      <div className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-white dark:bg-slate-900/95 backdrop-blur-md border-t border-slate-200 dark:border-slate-800">
         <div className="grid grid-cols-4 items-center h-16 max-w-md mx-auto px-2">
           {mobileTabs.map((tab) => {
             const isActive = activeTab === tab.id;
@@ -157,7 +157,7 @@ const MainAppContent: React.FC = () => {
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
                 className={`flex flex-col items-center justify-center min-h-[44px] min-w-[44px] transition-colors ${
-                  isActive ? 'text-emerald-700 font-bold' : 'text-slate-500 hover:text-slate-800'
+                  isActive ? 'text-emerald-700 dark:text-emerald-400 font-bold' : 'text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:text-slate-200 dark:hover:text-slate-100'
                 }`}
               >
                 <div className="relative">

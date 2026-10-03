@@ -83,10 +83,10 @@ export const GroupManagerDashboard: React.FC = () => {
       {/* Page Title & Context Header */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 pb-1">
         <div>
-          <h1 className="text-xl sm:text-2xl font-bold tracking-tight text-slate-900 leading-tight">
+          <h1 className="text-xl sm:text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-100 leading-tight">
             {language === 'ar' ? currentGroup.nameAr : currentGroup.name}
           </h1>
-          <p className="text-xs sm:text-sm text-slate-500 mt-1">
+          <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1">
             {t.overviewForMonth} · {currentGroup.managerIds.length} {language === 'ar' ? 'مدراء للمجموعة' : 'Synchronized Managers'}
           </p>
         </div>
@@ -94,9 +94,9 @@ export const GroupManagerDashboard: React.FC = () => {
         <div className="flex items-center gap-2 self-stretch sm:self-auto">
           <button
             onClick={() => setActiveTab('reports')}
-            className="flex-1 sm:flex-initial px-3 sm:px-4 py-2 sm:py-2.5 rounded-xl border border-slate-300 hover:bg-slate-50 text-slate-700 text-xs font-semibold flex items-center justify-center gap-1.5 min-h-[44px] transition-colors"
+            className="flex-1 sm:flex-initial px-3 sm:px-4 py-2 sm:py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 hover:bg-slate-50 dark:bg-slate-950 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 text-xs font-semibold flex items-center justify-center gap-1.5 min-h-[44px] transition-colors"
           >
-            <Download className="w-4 h-4 text-slate-500" />
+            <Download className="w-4 h-4 text-slate-500 dark:text-slate-400" />
             <span>{t.exportReport}</span>
           </button>
           <button
@@ -114,14 +114,14 @@ export const GroupManagerDashboard: React.FC = () => {
         {/* Total Members */}
         <div
           onClick={() => setActiveTab('members')}
-          className="p-3 sm:p-4 bg-white rounded-2xl border border-slate-200 hover:border-slate-300 cursor-pointer shadow-xs transition-colors flex flex-col justify-between"
+          className="p-3 sm:p-4 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:border-slate-700 cursor-pointer shadow-xs transition-colors flex flex-col justify-between"
         >
-          <span className="text-[11px] sm:text-xs text-slate-500 font-medium truncate block">{t.totalMembers}</span>
+          <span className="text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 font-medium truncate block">{t.totalMembers}</span>
           <div className="mt-1 sm:mt-2 flex items-baseline justify-between">
-            <span className="text-xl sm:text-2xl font-bold text-slate-900 tabular-nums">{totalCount}</span>
-            <span className="text-[10px] sm:text-[11px] text-slate-400 font-mono">100%</span>
+            <span className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-slate-100 tabular-nums">{totalCount}</span>
+            <span className="text-[10px] sm:text-[11px] text-slate-400 dark:text-slate-500 font-mono">100%</span>
           </div>
-          <div className="mt-1 text-[10px] sm:text-[11px] text-slate-400 truncate">
+          <div className="mt-1 text-[10px] sm:text-[11px] text-slate-400 dark:text-slate-500 truncate">
             {registeredCount} {language === 'ar' ? 'مسجل' : 'reg'}
           </div>
         </div>
@@ -129,17 +129,17 @@ export const GroupManagerDashboard: React.FC = () => {
         {/* Paid Members */}
         <div
           onClick={() => setActiveTab('members')}
-          className="p-3 sm:p-4 bg-emerald-50/50 rounded-2xl border border-emerald-200 hover:border-emerald-300 cursor-pointer shadow-xs transition-colors flex flex-col justify-between"
+          className="p-3 sm:p-4 bg-emerald-50 dark:bg-emerald-950/40/50 rounded-2xl border border-emerald-200 dark:border-emerald-800 hover:border-emerald-300 dark:border-emerald-700 cursor-pointer shadow-xs transition-colors flex flex-col justify-between"
         >
           <div className="flex items-center justify-between">
-            <span className="text-[11px] sm:text-xs text-emerald-800 font-semibold truncate">{t.paidCount}</span>
+            <span className="text-[11px] sm:text-xs text-emerald-800 dark:text-emerald-300 font-semibold truncate">{t.paidCount}</span>
             <span className="w-2 h-2 rounded-full bg-emerald-600 shrink-0" />
           </div>
           <div className="mt-1 sm:mt-2 flex items-baseline justify-between">
-            <span className="text-xl sm:text-2xl font-bold text-emerald-950 tabular-nums">{paidCount}</span>
-            <span className="text-xs text-emerald-700 font-bold tabular-nums">{collectionRate}%</span>
+            <span className="text-xl sm:text-2xl font-bold text-emerald-950 dark:text-emerald-100 tabular-nums">{paidCount}</span>
+            <span className="text-xs text-emerald-700 dark:text-emerald-400 font-bold tabular-nums">{collectionRate}%</span>
           </div>
-          <div className="mt-1 text-[10px] sm:text-[11px] text-emerald-800 font-medium truncate">
+          <div className="mt-1 text-[10px] sm:text-[11px] text-emerald-800 dark:text-emerald-300 font-medium truncate">
             {collectedAmount} JOD
           </div>
         </div>
@@ -149,21 +149,21 @@ export const GroupManagerDashboard: React.FC = () => {
           onClick={() => setActiveAttentionTab('proofs')}
           className={`p-3 sm:p-4 rounded-2xl border cursor-pointer shadow-xs transition-colors flex flex-col justify-between ${
             activeAttentionTab === 'proofs'
-              ? 'bg-amber-100/70 border-amber-400 ring-2 ring-amber-400/20'
-              : 'bg-amber-50/50 border-amber-200 hover:border-amber-300'
+              ? 'bg-amber-100 dark:bg-amber-900/35/70 border-amber-400 ring-2 ring-amber-400/20'
+              : 'bg-amber-50 dark:bg-amber-950/35/50 border-amber-200 dark:border-amber-800 hover:border-amber-300 dark:border-amber-700'
           }`}
         >
           <div className="flex items-center justify-between">
-            <span className="text-[11px] sm:text-xs text-amber-900 font-semibold truncate">{t.pendingCount}</span>
+            <span className="text-[11px] sm:text-xs text-amber-900 dark:text-amber-200 font-semibold truncate">{t.pendingCount}</span>
             <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse shrink-0" />
           </div>
           <div className="mt-1 sm:mt-2 flex items-baseline justify-between">
-            <span className="text-xl sm:text-2xl font-bold text-amber-950 tabular-nums">{pendingCount}</span>
-            <span className="text-[10px] sm:text-[11px] text-amber-800 font-semibold">
+            <span className="text-xl sm:text-2xl font-bold text-amber-950 dark:text-amber-100 tabular-nums">{pendingCount}</span>
+            <span className="text-[10px] sm:text-[11px] text-amber-800 dark:text-amber-300 font-semibold">
               {language === 'ar' ? 'إجراء' : 'Action'}
             </span>
           </div>
-          <div className="mt-1 text-[10px] sm:text-[11px] text-amber-800 truncate">
+          <div className="mt-1 text-[10px] sm:text-[11px] text-amber-800 dark:text-amber-300 truncate">
             {language === 'ar' ? 'إيصالات تنتظر' : 'Proofs waiting'}
           </div>
         </div>
@@ -195,62 +195,62 @@ export const GroupManagerDashboard: React.FC = () => {
         {/* Unregistered Members */}
         <div
           onClick={() => setActiveTab('members')}
-          className="p-3 sm:p-4 rounded-2xl border cursor-pointer shadow-xs transition-colors flex flex-col justify-between bg-white border-slate-200 hover:border-slate-300"
+          className="p-3 sm:p-4 rounded-2xl border cursor-pointer shadow-xs transition-colors flex flex-col justify-between bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:border-slate-700"
         >
-          <span className="text-[11px] sm:text-xs text-slate-500 font-medium truncate block">{t.unregisteredMembers}</span>
+          <span className="text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 font-medium truncate block">{t.unregisteredMembers}</span>
           <div className="mt-1 sm:mt-2 flex items-baseline justify-between">
-            <span className="text-xl sm:text-2xl font-bold text-slate-800 tabular-nums">{unregisteredCount}</span>
-            <span className="text-[10px] sm:text-[11px] text-slate-400 font-mono">
+            <span className="text-xl sm:text-2xl font-bold text-slate-800 dark:text-slate-200 tabular-nums">{unregisteredCount}</span>
+            <span className="text-[10px] sm:text-[11px] text-slate-400 dark:text-slate-500 font-mono">
               {Math.round((unregisteredCount / totalCount) * 100)}%
             </span>
           </div>
-          <div className="mt-1 text-[10px] sm:text-[11px] text-slate-500 truncate">
+          <div className="mt-1 text-[10px] sm:text-[11px] text-slate-500 dark:text-slate-400 truncate">
             {language === 'ar' ? 'في الواتساب فقط' : 'In WhatsApp only'}
           </div>
         </div>
 
         {/* Collection Summary */}
         <div className="p-3 sm:p-4 bg-slate-900 text-white rounded-2xl border border-slate-800 shadow-xs flex flex-col justify-between col-span-2 sm:col-span-1">
-          <span className="text-[11px] sm:text-xs text-slate-400 font-medium truncate block">{t.collectedAmount}</span>
+          <span className="text-[11px] sm:text-xs text-slate-400 dark:text-slate-500 font-medium truncate block">{t.collectedAmount}</span>
           <div className="mt-1 sm:mt-2 flex items-baseline justify-between">
             <span className="text-xl sm:text-2xl font-bold text-white tabular-nums">{collectedAmount}</span>
             <span className="text-xs text-emerald-400 font-semibold">{currentGroup.currency}</span>
           </div>
-          <div className="mt-1 text-[10px] sm:text-[11px] text-slate-400 truncate">
+          <div className="mt-1 text-[10px] sm:text-[11px] text-slate-400 dark:text-slate-500 truncate">
             {language === 'ar' ? 'المستهدف:' : 'Target:'} {expectedAmount} JOD
           </div>
         </div>
       </div>
 
       {/* EXCEPTION MANAGEMENT SECTION: "Needs Immediate Attention" */}
-      <div className="bg-white rounded-2xl border border-slate-200 shadow-xs overflow-hidden">
+      <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-xs overflow-hidden">
         {/* Section Header */}
-        <div className="p-4 sm:p-6 border-b border-slate-200 bg-slate-50/70">
+        <div className="p-4 sm:p-6 border-b border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950/70">
           <div className="flex flex-col gap-3">
             <div>
               <div className="flex items-center gap-2">
                 <span className="w-2.5 h-2.5 rounded-full bg-amber-500 animate-pulse shrink-0" />
-                <h2 className="text-base sm:text-lg font-bold text-slate-900 leading-tight">
+                <h2 className="text-base sm:text-lg font-bold text-slate-900 dark:text-slate-100 leading-tight">
                   {t.needsAttention}
                 </h2>
               </div>
-              <p className="text-xs text-slate-500 mt-1">
+              <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
                 {t.needsAttentionSubtitle}
               </p>
             </div>
 
             {/* Sub-Tabs for Exception Queue with responsive touch scrolling */}
-            <div className="flex items-center gap-1.5 p-1 bg-slate-200/70 rounded-xl overflow-x-auto no-scrollbar -mx-1 sm:mx-0">
+            <div className="flex items-center gap-1.5 p-1 bg-slate-200 dark:bg-slate-700/70 rounded-xl overflow-x-auto no-scrollbar -mx-1 sm:mx-0">
               <button
                 onClick={() => setActiveAttentionTab('proofs')}
                 className={`px-3 py-2 text-xs font-semibold rounded-lg transition-colors whitespace-nowrap min-h-[40px] flex items-center gap-1.5 shrink-0 ${
                   activeAttentionTab === 'proofs'
-                    ? 'bg-white text-slate-900 shadow-xs'
-                    : 'text-slate-600 hover:text-slate-900'
+                    ? 'bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 shadow-xs'
+                    : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:text-slate-100 dark:hover:text-white'
                 }`}
               >
                 <span>{language === 'ar' ? 'إيصالات بانتظار الاعتماد' : 'Pending Proofs'}</span>
-                <span className="px-1.5 py-0.5 rounded-full bg-amber-100 text-amber-900 font-bold text-[10px]">
+                <span className="px-1.5 py-0.5 rounded-full bg-amber-100 dark:bg-amber-900/35 text-amber-900 dark:text-amber-200 font-bold text-[10px]">
                   {pendingProofs.length}
                 </span>
               </button>
@@ -259,8 +259,8 @@ export const GroupManagerDashboard: React.FC = () => {
                 onClick={() => setActiveAttentionTab('unpaid')}
                 className={`px-3 py-2 text-xs font-semibold rounded-lg transition-colors whitespace-nowrap min-h-[40px] flex items-center gap-1.5 shrink-0 ${
                   activeAttentionTab === 'unpaid'
-                    ? 'bg-white text-slate-900 shadow-xs'
-                    : 'text-slate-600 hover:text-slate-900'
+                    ? 'bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 shadow-xs'
+                    : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:text-slate-100 dark:hover:text-white'
                 }`}
               >
                 <span>{language === 'ar' ? 'لم يسددوا' : 'Unpaid Members'}</span>
@@ -274,12 +274,12 @@ export const GroupManagerDashboard: React.FC = () => {
                   onClick={() => setActiveAttentionTab('rejected')}
                   className={`px-3 py-2 text-xs font-semibold rounded-lg transition-colors whitespace-nowrap min-h-[40px] flex items-center gap-1.5 shrink-0 ${
                     activeAttentionTab === 'rejected'
-                      ? 'bg-white text-slate-900 shadow-xs'
-                      : 'text-slate-600 hover:text-slate-900'
+                      ? 'bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 shadow-xs'
+                      : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:text-slate-100 dark:hover:text-white'
                   }`}
                 >
                   <span>{language === 'ar' ? 'مرفوض' : 'Rejected'}</span>
-                  <span className="px-1.5 py-0.5 rounded-full bg-red-100 text-red-900 font-bold text-[10px]">
+                  <span className="px-1.5 py-0.5 rounded-full bg-red-100 dark:bg-red-900/35 text-red-900 dark:text-red-200 font-bold text-[10px]">
                     {rejectedMembers.length}
                   </span>
                 </button>
@@ -290,12 +290,12 @@ export const GroupManagerDashboard: React.FC = () => {
 
         {/* Tab 1: Pending Payment Proofs Review Queue */}
         {activeAttentionTab === 'proofs' && (
-          <div className="divide-y divide-slate-100">
+          <div className="divide-y divide-slate-100 dark:divide-slate-800">
             {pendingProofs.length === 0 ? (
-              <div className="p-8 text-center text-slate-500 text-sm">
+              <div className="p-8 text-center text-slate-500 dark:text-slate-400 text-sm">
                 <CheckCircle className="w-10 h-10 text-emerald-600 mx-auto mb-2 opacity-80" />
-                <p className="font-semibold text-slate-800">{t.noPendingProofs}</p>
-                <p className="text-xs text-slate-400 mt-1">
+                <p className="font-semibold text-slate-800 dark:text-slate-200">{t.noPendingProofs}</p>
+                <p className="text-xs text-slate-400 dark:text-slate-500 mt-1">
                   {language === 'ar' ? 'كل إيصالات الدفع تم تدقيقها والموافقة عليها' : 'All incoming payment proofs have been verified.'}
                 </p>
               </div>
@@ -303,27 +303,27 @@ export const GroupManagerDashboard: React.FC = () => {
               pendingProofs.slice(0, 8).map((proof) => (
                 <div
                   key={proof.id}
-                  className="p-3.5 sm:p-5 hover:bg-slate-50/70 transition-colors flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4"
+                  className="p-3.5 sm:p-5 hover:bg-slate-50 dark:bg-slate-950 dark:hover:bg-slate-800/70 transition-colors flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4"
                 >
                   <div className="flex items-start sm:items-center gap-3">
-                    <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-amber-100 text-amber-800 flex items-center justify-center font-bold text-xs sm:text-sm shrink-0">
+                    <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-amber-100 dark:bg-amber-900/35 text-amber-800 dark:text-amber-300 flex items-center justify-center font-bold text-xs sm:text-sm shrink-0">
                       ⏳
                     </div>
                     <div className="min-w-0">
                       <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
-                        <h4 className="text-xs sm:text-sm font-bold text-slate-900 truncate">
+                        <h4 className="text-xs sm:text-sm font-bold text-slate-900 dark:text-slate-100 truncate">
                           {language === 'ar' && proof.memberNameAr ? proof.memberNameAr : proof.memberName}
                         </h4>
-                        <span className="text-[11px] sm:text-xs font-mono font-semibold text-slate-500">
+                        <span className="text-[11px] sm:text-xs font-mono font-semibold text-slate-500 dark:text-slate-400">
                           {proof.memberPhone}
                         </span>
                       </div>
-                      <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 text-[11px] sm:text-xs text-slate-500 mt-1">
-                        <span className="font-bold text-slate-800 tabular-nums">{proof.amount} {proof.currency}</span>
+                      <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 mt-1">
+                        <span className="font-bold text-slate-800 dark:text-slate-200 tabular-nums">{proof.amount} {proof.currency}</span>
                         <span>·</span>
-                        <span className="font-mono text-emerald-800 font-semibold">{proof.referenceNumber}</span>
+                        <span className="font-mono text-emerald-800 dark:text-emerald-300 font-semibold">{proof.referenceNumber}</span>
                         <span>·</span>
-                        <span className="uppercase text-[10px] font-medium text-slate-600">
+                        <span className="uppercase text-[10px] font-medium text-slate-600 dark:text-slate-300">
                           {proof.paymentMethod.replace('_', ' ')}
                         </span>
                       </div>
@@ -345,11 +345,11 @@ export const GroupManagerDashboard: React.FC = () => {
             )}
 
             {pendingProofs.length > 8 && (
-              <div className="p-3 bg-slate-50 text-center border-t border-slate-100">
+              <div className="p-3 bg-slate-50 dark:bg-slate-950 text-center border-t border-slate-100 dark:border-slate-800">
                 <button
                   type="button"
                   onClick={() => setActiveTab('payments')}
-                  className="text-xs text-emerald-700 font-bold hover:underline"
+                  className="text-xs text-emerald-700 dark:text-emerald-400 font-bold hover:underline"
                 >
                   {language === 'ar' ? `عرض كافة الإيصالات المتبقية (${pendingProofs.length})` : `View all remaining ${pendingProofs.length} pending proofs →`}
                 </button>
@@ -360,7 +360,7 @@ export const GroupManagerDashboard: React.FC = () => {
 
         {/* Tab 2: Unpaid Members Queue with One-Click WhatsApp Action */}
         {activeAttentionTab === 'unpaid' && (
-          <div className="divide-y divide-slate-100">
+          <div className="divide-y divide-slate-100 dark:divide-slate-800">
             <div className="p-3.5 sm:p-4 bg-rose-50/50 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
               <div className="flex items-center gap-2 text-xs text-rose-900 font-medium">
                 <AlertCircle className="w-4 h-4 text-rose-600 shrink-0" />
@@ -390,7 +390,7 @@ export const GroupManagerDashboard: React.FC = () => {
               return (
                 <div
                   key={member.id}
-                  className="p-3.5 sm:p-5 hover:bg-slate-50/70 transition-colors flex flex-col sm:flex-row sm:items-center justify-between gap-3"
+                  className="p-3.5 sm:p-5 hover:bg-slate-50 dark:bg-slate-950 dark:hover:bg-slate-800/70 transition-colors flex flex-col sm:flex-row sm:items-center justify-between gap-3"
                 >
                   <div className="flex items-center gap-3">
                     <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-rose-100 text-rose-800 flex items-center justify-center font-bold text-xs sm:text-sm shrink-0">
@@ -398,12 +398,12 @@ export const GroupManagerDashboard: React.FC = () => {
                     </div>
                     <div>
                       <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
-                        <span className="text-xs sm:text-sm font-bold text-slate-900">
+                        <span className="text-xs sm:text-sm font-bold text-slate-900 dark:text-slate-100">
                           {language === 'ar' && member.nameAr ? member.nameAr : member.name}
                         </span>
                         <StatusIndicator status="unpaid" size="sm" />
                       </div>
-                      <div className="text-[11px] sm:text-xs text-slate-500 font-mono mt-0.5">
+                      <div className="text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 font-mono mt-0.5">
                         {member.phone} · {member.monthlyFee} JOD Due
                       </div>
                     </div>
@@ -413,7 +413,7 @@ export const GroupManagerDashboard: React.FC = () => {
                     <button
                       type="button"
                       onClick={() => setSelectedMemberForProfile(member)}
-                      className="flex-1 sm:flex-initial px-3 py-2 rounded-xl border border-slate-300 hover:bg-slate-100 text-slate-700 text-xs font-semibold min-h-[44px] flex items-center justify-center"
+                      className="flex-1 sm:flex-initial px-3 py-2 rounded-xl border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:bg-slate-800 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 text-xs font-semibold min-h-[44px] flex items-center justify-center"
                     >
                       {t.viewDetails}
                     </button>
@@ -435,24 +435,24 @@ export const GroupManagerDashboard: React.FC = () => {
 
         {/* Tab 3: Rejected Proofs */}
         {activeAttentionTab === 'rejected' && (
-          <div className="divide-y divide-slate-100">
+          <div className="divide-y divide-slate-100 dark:divide-slate-800">
             {rejectedMembers.map((member) => (
               <div
                 key={member.id}
-                className="p-3.5 sm:p-5 hover:bg-slate-50/70 transition-colors flex flex-col sm:flex-row sm:items-center justify-between gap-3"
+                className="p-3.5 sm:p-5 hover:bg-slate-50 dark:bg-slate-950 dark:hover:bg-slate-800/70 transition-colors flex flex-col sm:flex-row sm:items-center justify-between gap-3"
               >
                 <div className="flex items-center gap-3">
-                  <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-red-100 text-red-800 flex items-center justify-center font-bold text-xs sm:text-sm shrink-0">
+                  <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-red-100 dark:bg-red-900/35 text-red-800 dark:text-red-300 flex items-center justify-center font-bold text-xs sm:text-sm shrink-0">
                     ×
                   </div>
                   <div>
                     <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
-                      <span className="text-xs sm:text-sm font-bold text-slate-900">
+                      <span className="text-xs sm:text-sm font-bold text-slate-900 dark:text-slate-100">
                         {language === 'ar' && member.nameAr ? member.nameAr : member.name}
                       </span>
                       <StatusIndicator status="rejected" size="sm" />
                     </div>
-                    <div className="text-[11px] sm:text-xs text-slate-500 font-mono mt-0.5">
+                    <div className="text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 font-mono mt-0.5">
                       {member.phone} · {member.notes}
                     </div>
                   </div>
@@ -462,7 +462,7 @@ export const GroupManagerDashboard: React.FC = () => {
                   <button
                     type="button"
                     onClick={() => setSelectedMemberForProfile(member)}
-                    className="w-full sm:w-auto px-4 py-2.5 rounded-xl border border-slate-300 hover:bg-slate-100 text-slate-700 text-xs font-semibold min-h-[44px] flex items-center justify-center"
+                    className="w-full sm:w-auto px-4 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:bg-slate-800 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 text-xs font-semibold min-h-[44px] flex items-center justify-center"
                   >
                     {language === 'ar' ? 'عرض تفاصيل الرفض' : 'View Rejection Details'}
                   </button>
@@ -474,13 +474,13 @@ export const GroupManagerDashboard: React.FC = () => {
       </div>
 
       {/* Multi-Manager Activity Log for Delivery Group A */}
-      <div className="bg-white rounded-2xl border border-slate-200 shadow-xs p-4 sm:p-6">
+      <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-xs p-4 sm:p-6">
         <div className="flex items-center justify-between mb-4">
           <div>
-            <h3 className="text-sm sm:text-base font-bold text-slate-900">
+            <h3 className="text-sm sm:text-base font-bold text-slate-900 dark:text-slate-100">
               {language === 'ar' ? 'نشاط مدراء المجموعة (تزامن فوري)' : 'Synchronized Manager Activity'}
             </h3>
-            <p className="text-[11px] sm:text-xs text-slate-500">
+            <p className="text-[11px] sm:text-xs text-slate-500 dark:text-slate-400">
               {language === 'ar'
                 ? 'جميع إجراءات المدراء الـ 6 موثقة وتظهر للجميع لضمان عدم التكرار'
                 : 'All actions by the 6 group managers are synchronized and tracked.'}
@@ -488,7 +488,7 @@ export const GroupManagerDashboard: React.FC = () => {
           </div>
           <button
             onClick={() => setActiveTab('activity')}
-            className="text-xs text-emerald-700 font-bold hover:underline shrink-0"
+            className="text-xs text-emerald-700 dark:text-emerald-400 font-bold hover:underline shrink-0"
           >
             {language === 'ar' ? 'السجل الكامل' : 'Full Audit'}
           </button>
@@ -520,22 +520,22 @@ export const GroupManagerDashboard: React.FC = () => {
           ].map((item, idx) => (
             <div
               key={idx}
-              className="p-3 bg-slate-50 rounded-xl border border-slate-100 flex items-center justify-between text-xs gap-2"
+              className="p-3 bg-slate-50 dark:bg-slate-950 rounded-xl border border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs gap-2"
             >
               <div className="flex items-center gap-2.5 min-w-0">
-                <div className="w-7 h-7 rounded-full bg-slate-200 text-slate-700 font-bold flex items-center justify-center text-[11px] shrink-0">
+                <div className="w-7 h-7 rounded-full bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300 font-bold flex items-center justify-center text-[11px] shrink-0">
                   {item.manager.charAt(0)}
                 </div>
                 <div className="min-w-0">
-                  <span className="font-bold text-slate-900 block truncate">
+                  <span className="font-bold text-slate-900 dark:text-slate-100 block truncate">
                     {language === 'ar' ? item.managerAr : item.manager}
                   </span>
-                  <span className="text-slate-600 block mt-0.5 truncate">
+                  <span className="text-slate-600 dark:text-slate-300 block mt-0.5 truncate">
                     {language === 'ar' ? item.actionAr : item.action}
                   </span>
                 </div>
               </div>
-              <span className="text-[10px] sm:text-[11px] text-slate-400 tabular-nums shrink-0">{item.time}</span>
+              <span className="text-[10px] sm:text-[11px] text-slate-400 dark:text-slate-500 tabular-nums shrink-0">{item.time}</span>
             </div>
           ))}
         </div>

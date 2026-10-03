@@ -53,10 +53,10 @@ export const MemberProfileView: React.FC = () => {
     <div className="max-w-xl mx-auto space-y-4 sm:space-y-6">
       {/* Header */}
       <div>
-        <h1 className="text-xl sm:text-2xl font-bold tracking-tight text-slate-900 leading-tight">
+        <h1 className="text-xl sm:text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-100 leading-tight">
           {t.navProfile}
         </h1>
-        <p className="text-xs sm:text-sm text-slate-500 mt-1">
+        <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1">
           {language === 'ar' ? 'بيانات الكابتن المسجلة في منصة التوصيل' : 'Courier registration and membership card.'}
         </p>
       </div>
@@ -69,7 +69,7 @@ export const MemberProfileView: React.FC = () => {
               <span className="text-[10px] sm:text-[11px] font-bold tracking-widest text-emerald-400 uppercase block truncate">
                 {t.appName}
               </span>
-              <span className="text-xs text-slate-300 truncate block">
+              <span className="text-xs text-slate-300 dark:text-slate-600 truncate block">
                 {language === 'ar' ? currentGroup.nameAr : currentGroup.name}
               </span>
             </div>
@@ -77,7 +77,7 @@ export const MemberProfileView: React.FC = () => {
           </div>
 
           <div className="pt-2">
-            <span className="text-[10px] text-slate-400 uppercase tracking-wider block">
+            <span className="text-[10px] text-slate-400 dark:text-slate-500 uppercase tracking-wider block">
               {language === 'ar' ? 'اسم الكابتن' : 'Courier Name'}
             </span>
             <h3 className="text-lg sm:text-xl font-extrabold tracking-tight truncate">
@@ -90,7 +90,7 @@ export const MemberProfileView: React.FC = () => {
 
           <div className="grid grid-cols-2 gap-3 pt-3 border-t border-white/10 text-xs">
             <div>
-              <span className="text-slate-400 text-[10px] block uppercase">
+              <span className="text-slate-400 dark:text-slate-500 text-[10px] block uppercase">
                 {language === 'ar' ? 'المركبة واللوحة' : 'Vehicle & Plate'}
               </span>
               <span className="font-semibold block mt-0.5 truncate">
@@ -98,7 +98,7 @@ export const MemberProfileView: React.FC = () => {
               </span>
             </div>
             <div>
-              <span className="text-slate-400 text-[10px] block uppercase">
+              <span className="text-slate-400 dark:text-slate-500 text-[10px] block uppercase">
                 {language === 'ar' ? 'تاريخ التسجيل' : 'Registered Since'}
               </span>
               <span className="font-mono block mt-0.5 truncate">
@@ -110,45 +110,45 @@ export const MemberProfileView: React.FC = () => {
       </div>
 
       {/* Profile Form */}
-      <form onSubmit={handleSave} className="bg-white rounded-2xl border border-slate-200 shadow-xs p-4 sm:p-6 space-y-4">
-        <h3 className="text-sm sm:text-base font-bold text-slate-900">
+      <form onSubmit={handleSave} className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-xs p-4 sm:p-6 space-y-4">
+        <h3 className="text-sm sm:text-base font-bold text-slate-900 dark:text-slate-100">
           {language === 'ar' ? 'تعديل بيانات المركبة والتحويل' : 'Update Courier Details'}
         </h3>
 
         <div className="space-y-3 text-xs">
           <div>
-            <label className="block font-bold text-slate-700 uppercase mb-1">
+            <label className="block font-bold text-slate-700 dark:text-slate-300 uppercase mb-1">
               {language === 'ar' ? 'الاسم الكامل' : 'Full Name'}
             </label>
             <input
               type="text"
               disabled
               value={member.name}
-              className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 text-slate-500 font-semibold cursor-not-allowed min-h-[44px]"
+              className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 text-slate-500 dark:text-slate-400 font-semibold cursor-not-allowed min-h-[44px]"
             />
           </div>
 
           <div>
-            <label className="block font-bold text-slate-700 uppercase mb-1">
+            <label className="block font-bold text-slate-700 dark:text-slate-300 uppercase mb-1">
               {language === 'ar' ? 'رقم الهاتف المسجل (واتساب)' : 'Registered WhatsApp Phone'}
             </label>
             <input
               type="text"
               disabled
               value={member.phone}
-              className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 text-slate-500 font-mono cursor-not-allowed min-h-[44px]"
+              className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 text-slate-500 dark:text-slate-400 font-mono cursor-not-allowed min-h-[44px]"
             />
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
             <div>
-              <label className="block font-bold text-slate-700 uppercase mb-1">
+              <label className="block font-bold text-slate-700 dark:text-slate-300 uppercase mb-1">
                 {language === 'ar' ? 'وسيلة التوصيل' : 'Vehicle Type'}
               </label>
               <select
                 value={vehicle}
                 onChange={(e) => setVehicle(e.target.value as any)}
-                className="w-full px-3 py-2.5 rounded-xl border border-slate-300 text-sm text-slate-900 focus:ring-2 focus:ring-emerald-500 min-h-[44px]"
+                className="w-full px-3 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 text-sm text-slate-900 dark:text-slate-100 focus:ring-2 focus:ring-emerald-500 min-h-[44px]"
               >
                 <option value="motorcycle">{language === 'ar' ? 'دراجة نارية' : 'Motorcycle'}</option>
                 <option value="car">{language === 'ar' ? 'سيارة' : 'Car'}</option>
@@ -157,7 +157,7 @@ export const MemberProfileView: React.FC = () => {
             </div>
 
             <div>
-              <label className="block font-bold text-slate-700 uppercase mb-1">
+              <label className="block font-bold text-slate-700 dark:text-slate-300 uppercase mb-1">
                 {language === 'ar' ? 'رقم لوحة المركبة' : 'Plate Number'}
               </label>
               <input
@@ -165,13 +165,13 @@ export const MemberProfileView: React.FC = () => {
                 value={plate}
                 onChange={(e) => setPlate(e.target.value)}
                 placeholder="44-9812"
-                className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 font-mono text-sm text-slate-900 focus:ring-2 focus:ring-emerald-500 min-h-[44px]"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 font-mono text-sm text-slate-900 dark:text-slate-100 focus:ring-2 focus:ring-emerald-500 min-h-[44px]"
               />
             </div>
           </div>
 
           <div>
-            <label className="block font-bold text-slate-700 uppercase mb-1">
+            <label className="block font-bold text-slate-700 dark:text-slate-300 uppercase mb-1">
               {language === 'ar' ? 'اسم كليك الخاص بك (CliQ Alias)' : 'Your Personal CliQ Alias'}
             </label>
             <input
@@ -179,12 +179,12 @@ export const MemberProfileView: React.FC = () => {
               value={cliqAlias}
               onChange={(e) => setCliqAlias(e.target.value)}
               placeholder="e.g. AHMAD_KHALIL"
-              className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 font-mono text-sm text-slate-900 uppercase focus:ring-2 focus:ring-emerald-500 min-h-[44px]"
+              className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 font-mono text-sm text-slate-900 dark:text-slate-100 uppercase focus:ring-2 focus:ring-emerald-500 min-h-[44px]"
             />
           </div>
         </div>
 
-        <div className="pt-3 border-t border-slate-100 flex justify-end">
+        <div className="pt-3 border-t border-slate-100 dark:border-slate-800 flex justify-end">
           <button
             type="submit"
             className="w-full sm:w-auto px-6 py-2.5 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white font-bold text-xs min-h-[44px] shadow-sm flex items-center justify-center gap-1.5 transition-colors"

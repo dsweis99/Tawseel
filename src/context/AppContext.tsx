@@ -25,11 +25,16 @@ interface ToastState {
   type: 'success' | 'error' | 'info';
 }
 
+export type Theme = 'light' | 'dark';
+
 interface AppContextType {
   currentUser: User;
   setCurrentUser: (user: User) => void;
   users: User[];
   language: Language;
+  theme: Theme;
+  setTheme: (theme: Theme) => void;
+  toggleTheme: () => void;
   setLanguage: (lang: Language) => void;
   t: typeof translations['en'];
   groups: DeliveryGroup[];
@@ -72,6 +77,10 @@ const AppContext = createContext<AppContextType | undefined>(undefined);
 
 export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [language, setLanguageState] = useState<Language>('en');
+  const [theme, setThemeState] = useState<Theme>(() => {
+    if (typeof window === 'undefined') return 'light';
+    return localStorage.getItem('tawseel-theme') === 'dark' ? 'dark' : 'light';
+  });
   const [users] = useState<User[]>(MOCK_USERS);
   // Default to Group Manager Omar Al-Khatib for immediate manager operational experience
   const [currentUser, setCurrentUser] = useState<User>(MOCK_USERS[2]); 
@@ -87,6 +96,21 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
   const [selectedProofForReview, setSelectedProofForReview] = useState<PaymentProof | null>(null);
   const [isUploadModalOpen, setIsUploadModalOpen] = useState<boolean>(false);
   const [toast, setToast] = useState<ToastState | null>(null);
+
+  // Persist and apply the selected appearance across refreshes.
+  const setTheme = (nextTheme: Theme) => {
+    setThemeState(nextTheme);
+  };
+
+  const toggleTheme = () => {
+    setThemeState((current) => (current === 'light' ? 'dark' : 'light'));
+  };
+
+  useEffect(() => {
+    document.documentElement.classList.toggle('dark', theme === 'dark');
+    document.documentElement.style.colorScheme = theme;
+    localStorage.setItem('tawseel-theme', theme);
+  }, [theme]);
 
   // Sync RTL / LTR on language change
   const setLanguage = (lang: Language) => {
@@ -410,6 +434,9 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
     setCurrentUser,
     users,
     language,
+    theme,
+    setTheme,
+    toggleTheme,
     setLanguage,
     t: translations[language],
     groups,
