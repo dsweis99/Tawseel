@@ -1,0 +1,6 @@
+{
+  "name": "Wasel Admin — Delivery Community Membership & Subscription Hub",
+  "description": "Administrative platform for WhatsApp delivery communities to manage member registration, monthly subscriptions, payment proof verification, and group reporting.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
